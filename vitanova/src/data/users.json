@@ -1,0 +1,8 @@
+[
+  { "id": "u1", "email": "admin@vitanova.io", "password": "admin123", "name": "System Administrator", "role": "admin", "active": true, "created": "2025-01-15" },
+  { "id": "u2", "email": "commander@vitanova.io", "password": "cmd123", "name": "Maj. C. Marinescu", "role": "commander", "active": true, "created": "2025-02-01" },
+  { "id": "u3", "email": "doctor@vitanova.io", "password": "doc123", "name": "Dr. D. Ionescu", "role": "physician", "active": true, "created": "2025-02-10" },
+  { "id": "u4", "email": "psych@vitanova.io", "password": "psy123", "name": "Dr. A. Vasilescu", "role": "psychologist", "active": true, "created": "2025-02-15" },
+  { "id": "u5", "email": "trainer@vitanova.io", "password": "train123", "name": "Coach M. Dragomir", "role": "trainer", "active": true, "created": "2025-03-01" },
+  { "id": "u6", "email": "user@vitanova.io", "password": "user123", "name": "Cpl. R. Stanescu", "role": "user", "active": true, "created": "2025-03-10" }
+]

@@ -1,0 +1,10 @@
+[
+  {"id":"a01","personnelId":"p05","specialistId":"u3","type":"medical","date":"2025-03-05","time":"09:00","status":"scheduled","notes":"Follow-up on elevated stress markers"},
+  {"id":"a02","personnelId":"p09","specialistId":"u4","type":"psychological","date":"2025-03-05","time":"10:30","status":"scheduled","notes":"Routine psychological evaluation"},
+  {"id":"a03","personnelId":"p03","specialistId":"u5","type":"training","date":"2025-03-05","time":"14:00","status":"scheduled","notes":"Training load adjustment review"},
+  {"id":"a04","personnelId":"p22","specialistId":"u3","type":"medical","date":"2025-03-06","time":"08:00","status":"scheduled","notes":"Non-deployable status review"},
+  {"id":"a05","personnelId":"p18","specialistId":"u4","type":"psychological","date":"2025-03-06","time":"11:00","status":"scheduled","notes":"Stress intervention session"},
+  {"id":"a06","personnelId":"p08","specialistId":"u5","type":"training","date":"2025-03-06","time":"15:00","status":"completed","notes":"Program modification consultation"},
+  {"id":"a07","personnelId":"p12","specialistId":"u3","type":"medical","date":"2025-03-04","time":"09:00","status":"completed","notes":"Routine health check"},
+  {"id":"a08","personnelId":"p20","specialistId":"u4","type":"psychological","date":"2025-03-04","time":"13:00","status":"cancelled","notes":"Rescheduled by personnel"}
+]
