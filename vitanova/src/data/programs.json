@@ -1,0 +1,8 @@
+[
+  {"id":"pr01","name":"Tactical Readiness Phase I","type":"physical","duration":"8 weeks","intensity":"high","assignedTo":["p01","p02","p04"],"status":"active","startDate":"2025-02-01","description":"High-intensity tactical readiness program for deployment preparation."},
+  {"id":"pr02","name":"Recovery Protocol","type":"recovery","duration":"2 weeks","intensity":"low","assignedTo":["p05","p09"],"status":"active","startDate":"2025-03-01","description":"Low-intensity recovery program for personnel returning from high-stress operations."},
+  {"id":"pr03","name":"Cognitive Resilience Training","type":"mental","duration":"6 weeks","intensity":"moderate","assignedTo":["p03","p08","p15"],"status":"active","startDate":"2025-02-15","description":"Mental resilience and stress management training program."},
+  {"id":"pr04","name":"Endurance Building","type":"physical","duration":"12 weeks","intensity":"moderate","assignedTo":["p06","p07","p10","p11"],"status":"active","startDate":"2025-01-15","description":"Progressive endurance program for long-duration mission preparation."},
+  {"id":"pr05","name":"Post-Injury Rehabilitation","type":"rehabilitation","duration":"4 weeks","intensity":"low","assignedTo":["p22"],"status":"active","startDate":"2025-02-20","description":"Structured rehabilitation program for injury recovery."},
+  {"id":"pr06","name":"Advanced Combat Fitness","type":"physical","duration":"10 weeks","intensity":"high","assignedTo":[],"status":"draft","startDate":"2025-04-01","description":"Elite combat fitness program for special operations readiness."}
+]
