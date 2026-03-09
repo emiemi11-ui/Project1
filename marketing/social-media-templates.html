@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitaNova — Social Media Marketing Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-ink: #03050A;
+  --ice: #E8EEFF;
+  --ice2: #B4C3F0;
+  --subdued: rgba(255,255,255,0.35);
+  --cyan: #00d4ff;
+  --green: #00E5A0;
+  --amber: #F0A000;
+  --red: #E83050;
+  --font-headline: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+body {
+  background: var(--bg-ink);
+  color: var(--ice);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Page Layout ──────────────────────────────────────── */
+.page-header {
+  text-align: center;
+  padding: 60px 40px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.page-header h1 {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: linear-gradient(135deg, var(--cyan), var(--ice));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.page-header .instructions {
+  max-width: 640px;
+  margin: 18px auto 0;
+  font-size: 0.95rem;
+  color: var(--ice2);
+  line-height: 1.7;
+}
+.page-header .instructions strong {
+  color: var(--ice);
+}
+
+.gallery {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 40px 100px;
+}
+
+.section-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ice2);
+  margin: 60px 0 8px;
+  padding-left: 4px;
+}
+.section-subtitle {
+  font-size: 0.85rem;
+  color: var(--subdued);
+  margin-bottom: 28px;
+  padding-left: 4px;
+}
+
+.template-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 16px;
+}
+
+/* ── Template Card Wrapper ────────────────────────────── */
+.template-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  flex-shrink: 0;
+}
+.template-card:hover {
+  border-color: rgba(255,255,255,0.18);
+}
+.template-card .dim-label {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── Scaled containers (aspect-ratio boxes) ───────────── */
+/* 1080x1080 → scaled to 340px */
+.sq-1080 {
+  width: 340px;
+  height: 340px;
+}
+.sq-1080 .template-inner { width: 340px; height: 340px; }
+
+/* 1920x1080 → scaled to 480px wide */
+.wide-1920 {
+  width: 480px;
+  height: 270px;
+}
+.wide-1920 .template-inner { width: 480px; height: 270px; }
+
+/* 1080x1920 → scaled to 240px wide */
+.vert-1080 {
+  width: 240px;
+  height: 426px;
+}
+.vert-1080 .template-inner { width: 240px; height: 426px; }
+
+/* 1200x675 → scaled to 420px wide */
+.tw-1200 {
+  width: 420px;
+  height: 236px;
+}
+.tw-1200 .template-inner { width: 420px; height: 236px; }
+
+/* ── Template Inner (the actual "post") ───────────────── */
+.template-inner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ══════════════════════════════════════════════════════════
+   1. NUMERELE NU MINT — 1080×1080
+   ══════════════════════════════════════════════════════════ */
+.numerele .template-inner {
+  background: var(--bg-dark);
+  padding: 38px 34px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.numerele .template-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background: radial-gradient(ellipse at 30% 70%, var(--accent-color, var(--cyan)), transparent 60%);
+  pointer-events: none;
+}
+.numerele .num-top-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--subdued);
+  position: relative;
+}
+.numerele .num-big {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 4.8rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+.numerele .num-context {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.65;
+  color: var(--ice2);
+  max-width: 92%;
+  position: relative;
+}
+.numerele .num-question {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  position: relative;
+}
+.numerele .num-logo {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--subdued);
+  position: relative;
+  align-self: flex-end;
+}
+
+/* accent color variations */
+.numerele.accent-cyan  { --accent-color: var(--cyan); }
+.numerele.accent-cyan .num-big,
+.numerele.accent-cyan .num-question { color: var(--cyan); }
+
+.numerele.accent-red   { --accent-color: var(--red); }
+.numerele.accent-red .num-big,
+.numerele.accent-red .num-question { color: var(--red); }
+
+.numerele.accent-amber { --accent-color: var(--amber); }
+.numerele.accent-amber .num-big,
+.numerele.accent-amber .num-question { color: var(--amber); }
+
+/* ══════════════════════════════════════════════════════════
+   2. ATUNCI O SA POT — 1920×1080 thumbnails
+   ══════════════════════════════════════════════════════════ */
+.thumbnail .template-inner {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 24px 30px;
+  text-align: left;
+}
+.thumbnail .template-inner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 65%;
+  background: linear-gradient(to top, rgba(3,5,10,0.95) 0%, transparent 100%);
+  pointer-events: none;
+}
+.thumbnail .thumb-number {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  position: relative;
+  z-index: 2;
+}
+.thumbnail .thumb-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--ice2);
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+  max-width: 80%;
+  line-height: 1.5;
+}
+.thumbnail .thumb-series {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--subdued);
+  z-index: 2;
+}
+.thumbnail .thumb-logo {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  z-index: 2;
+}
+.thumbnail .thumb-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.thumbnail .thumb-play::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 0 7px 13px;
+  border-color: transparent transparent transparent rgba(255,255,255,0.8);
+  margin-left: 3px;
+}
+
+/* Grenada */
+.thumb-grenada .template-inner {
+  background:
+    linear-gradient(135deg, rgba(0,212,255,0.12) 0%, transparent 50%),
+    linear-gradient(to bottom, var(--bg-ink) 0%, #0c1420 100%);
+}
+.thumb-grenada .thumb-number { color: var(--cyan); }
+
+/* Partenerul */
+.thumb-partener .template-inner {
+  background:
+    linear-gradient(135deg, rgba(232,48,80,0.18) 0%, transparent 50%),
+    linear-gradient(to bottom, #150810 0%, var(--bg-ink) 100%);
+}
+.thumb-partener .thumb-number { color: var(--red); }
+
+/* Franghia */
+.thumb-franghia .template-inner {
+  background:
+    linear-gradient(to bottom, rgba(0,229,160,0.08) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--bg-ink) 0%, #060d0a 100%);
+}
+.thumb-franghia .thumb-number { color: var(--green); }
+
+/* Coloana */
+.thumb-coloana .template-inner {
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%),
+    linear-gradient(to bottom, #12141a 0%, var(--bg-ink) 100%);
+}
+.thumb-coloana .thumb-number { color: var(--ice); }
+
+/* ══════════════════════════════════════════════════════════
+   3. DOUĂ VERSIUNI ALE TALE — 1080×1920 vertical
+   ══════════════════════════════════════════════════════════ */
+.versiuni .template-inner {
+  background: var(--bg-dark);
+  padding: 0;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.versiuni .split-container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+.versiuni .split-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 10px;
+  position: relative;
+}
+.versiuni .split-side.side-a {
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+.versiuni .split-label {
+  font-family: var(--font-headline);
+  font-weight: 800;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: 12px;
+}
+.versiuni .split-icon-block {
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.versiuni .icon-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 36px;
+}
+.versiuni .icon-line {
+  height: 3px;
+  border-radius: 2px;
+  width: 100%;
+}
+.versiuni .icon-line.short { width: 60%; }
+.versiuni .icon-line.med { width: 80%; }
+
+.versiuni .split-details {
+  font-family: var(--font-mono);
+  font-size: 0.45rem;
+  color: var(--subdued);
+  text-align: center;
+  line-height: 1.8;
+}
+.versiuni .split-bottom {
+  width: 100%;
+  padding: 14px 16px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.versiuni .split-bottom p {
+  font-family: var(--font-body);
+  font-size: 0.52rem;
+  color: var(--ice2);
+  line-height: 1.5;
+}
+.versiuni .split-bottom .logo {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.45rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--subdued);
+  margin-top: 8px;
+}
+
+/* Dimineata variant */
+.vers-dimineata .side-a { background: linear-gradient(180deg, rgba(232,48,80,0.08) 0%, rgba(232,48,80,0.02) 100%); }
+.vers-dimineata .side-a .split-label { color: var(--red); }
+.vers-dimineata .side-a .split-icon-block { background: rgba(232,48,80,0.1); }
+.vers-dimineata .side-a .icon-line { background: var(--red); opacity: 0.5; }
+.vers-dimineata .side-a .icon-line:nth-child(odd) { width: 45%; }
+.vers-dimineata .side-a .icon-line:nth-child(even) { width: 90%; }
+
+.vers-dimineata .side-b { background: linear-gradient(180deg, rgba(0,229,160,0.06) 0%, rgba(0,229,160,0.01) 100%); }
+.vers-dimineata .side-b .split-label { color: var(--green); }
+.vers-dimineata .side-b .split-icon-block { background: rgba(0,229,160,0.1); }
+.vers-dimineata .side-b .icon-line { background: var(--green); opacity: 0.5; }
+
+/* Consultatia variant */
+.vers-consultatia .side-a { background: linear-gradient(180deg, rgba(240,160,0,0.06) 0%, transparent 100%); }
+.vers-consultatia .side-a .split-label { color: var(--amber); }
+.vers-consultatia .side-a .split-icon-block {
+  background: rgba(240,160,0,0.08);
+  border-radius: 6px;
+  width: 65px;
+  height: 50px;
+}
+.vers-consultatia .side-a .icon-lines { width: 30px; height: 30px; gap: 0; align-items: center; justify-content: center; }
+.vers-consultatia .side-a .icon-line { background: var(--amber); opacity: 0.4; height: 30px; width: 30px; border-radius: 3px; }
+.vers-consultatia .side-a .icon-line.short,
+.vers-consultatia .side-a .icon-line.med { display: none; }
+
+.vers-consultatia .side-b { background: linear-gradient(180deg, rgba(0,212,255,0.06) 0%, transparent 100%); }
+.vers-consultatia .side-b .split-label { color: var(--cyan); }
+.vers-consultatia .side-b .split-icon-block {
+  background: rgba(0,212,255,0.08);
+  width: 65px;
+  height: 50px;
+}
+.vers-consultatia .side-b .icon-lines { gap: 2px; width: 40px; }
+.vers-consultatia .side-b .icon-line { background: var(--cyan); opacity: 0.35; height: 2px; }
+.vers-consultatia .side-b .icon-line.short { width: 70%; }
+
+/* ══════════════════════════════════════════════════════════
+   4. TWITTER / X ONE-LINERS — 1200×675
+   ══════════════════════════════════════════════════════════ */
+.twitter-card .template-inner {
+  background: var(--bg-dark);
+  padding: 28px 36px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+.twitter-card .template-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--cyan), transparent);
+  opacity: 0.4;
+}
+.twitter-card .tw-text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--ice);
+  max-width: 85%;
+  position: relative;
+}
+.twitter-card .tw-logo {
+  position: absolute;
+  bottom: 16px;
+  right: 22px;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--subdued);
+}
+.twitter-card .tw-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+/* twitter accent bars */
+.tw-accent-cyan .tw-bar { background: linear-gradient(to right, var(--cyan), transparent 70%); }
+.tw-accent-red .tw-bar { background: linear-gradient(to right, var(--red), transparent 70%); }
+.tw-accent-green .tw-bar { background: linear-gradient(to right, var(--green), transparent 70%); }
+.tw-accent-amber .tw-bar { background: linear-gradient(to right, var(--amber), transparent 70%); }
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .template-row { gap: 20px; }
+  .gallery { padding: 20px; }
+  .page-header { padding: 40px 20px 16px; }
+  .page-header h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     PAGE HEADER
+     ════════════════════════════════════════════════════════ -->
+<header class="page-header">
+  <h1>VitaNova &mdash; Social Media Marketing Kit</h1>
+  <p class="instructions">
+    Right-click any template to <strong>save as image</strong>, or screenshot at the marked dimensions.
+    Each card displays its intended export size in the top-right corner.
+    Templates are shown at their native aspect ratio, scaled down to fit the page.
+  </p>
+</header>
+
+<main class="gallery">
+
+  <!-- ══════════════════════════════════════════════════════
+       1. NUMERELE NU MINT (4 × 1080×1080)
+       ══════════════════════════════════════════════════════ -->
+  <h2 class="section-title">1 &middot; Numerele Nu Mint</h2>
+  <p class="section-subtitle">Seria de statistici &mdash; 4 posturi &times; 1080 &times; 1080 px</p>
+
+  <div class="template-row">
+
+    <!-- Post 1 — 73% -->
+    <div class="template-card sq-1080 numerele accent-cyan">
+      <span class="dim-label">1080 &times; 1080</span>
+      <div class="template-inner">
+        <span class="num-top-label">Numerele nu mint &middot; 01</span>
+        <span class="num-big">73%</span>
+        <p class="num-context">din militarii răniți în antrenament aveau semne de oboseală extremă cu 48h înainte de incident.</p>
+        <p class="num-question">Cine le-a citit semnele?</p>
+        <span class="num-logo">VitaNova</span>
+      </div>
+    </div>
+
+    <!-- Post 2 — 3.5 ore -->
+    <div class="template-card sq-1080 numerele accent-red">
+      <span class="dim-label">1080 &times; 1080</span>
+      <div class="template-inner">
+        <span class="num-top-label">Numerele nu mint &middot; 02</span>
+        <span class="num-big">3.5 ore</span>
+        <p class="num-context">Atât a dormit înainte să ridice 140kg.<br>Antrenorul nu știa. Medicul nu știa. Nimeni nu știa.</p>
+        <p class="num-question">VitaNova ar fi știut.</p>
+        <span class="num-logo">VitaNova</span>
+      </div>
+    </div>
+
+    <!-- Post 3 — $0 -->
+    <div class="template-card sq-1080 numerele accent-amber">
+      <span class="dim-label">1080 &times; 1080</span>
+      <div class="template-inner">
+        <span class="num-top-label">Numerele nu mint &middot; 03</span>
+        <span class="num-big">$0</span>
+        <p class="num-context">Atât comunică acum medicul, psihologul și antrenorul tău între ei.<br>Zero date. Zero context. Zero coordonare.</p>
+        <p class="num-question">Cât costă lipsa de comunicare?</p>
+        <span class="num-logo">VitaNova</span>
+      </div>
+    </div>
+
+    <!-- Post 4 — 10 minute -->
+    <div class="template-card sq-1080 numerele accent-cyan">
+      <span class="dim-label">1080 &times; 1080</span>
+      <div class="template-inner">
+        <span class="num-top-label">Numerele nu mint &middot; 04</span>
+        <span class="num-big">10 min</span>
+        <p class="num-context">Atât te vede medicul tău. O dată la 6 luni.<br>O fotografie, nu un film.</p>
+        <p class="num-question">Cum ia decizii din o fotografie?</p>
+        <span class="num-logo">VitaNova</span>
+      </div>
+    </div>
+
+  </div><!-- /template-row -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       2. ATUNCI O SĂ POT — Video Thumbnails (4 × 1920×1080)
+       ══════════════════════════════════════════════════════ -->
+  <h2 class="section-title">2 &middot; Atunci O Să Pot</h2>
+  <p class="section-subtitle">Thumbnails video YouTube &mdash; 4 thumbnails &times; 1920 &times; 1080 px</p>
+
+  <div class="template-row">
+
+    <!-- Grenada -->
+    <div class="template-card wide-1920 thumbnail thumb-grenada">
+      <span class="dim-label">1920 &times; 1080</span>
+      <div class="template-inner">
+        <span class="thumb-series">Atunci o să pot &middot; Ep. 01</span>
+        <span class="thumb-logo">VitaNova</span>
+        <div class="thumb-play"></div>
+        <span class="thumb-number">4.2 SECUNDE</span>
+        <span class="thumb-subtitle">Tu când ai aflat ultima dată dacă poți?</span>
+      </div>
+    </div>
+
+    <!-- Partenerul Rănit -->
+    <div class="template-card wide-1920 thumbnail thumb-partener">
+      <span class="dim-label">1920 &times; 1080</span>
+      <div class="template-inner">
+        <span class="thumb-series">Atunci o să pot &middot; Ep. 02</span>
+        <span class="thumb-logo">VitaNova</span>
+        <div class="thumb-play"></div>
+        <span class="thumb-number">170 METRI</span>
+        <span class="thumb-subtitle">El nu a murit din cauza glonțului.</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="template-row">
+
+    <!-- Frânghia -->
+    <div class="template-card wide-1920 thumbnail thumb-franghia">
+      <span class="dim-label">1920 &times; 1080</span>
+      <div class="template-inner">
+        <span class="thumb-series">Atunci o să pot &middot; Ep. 03</span>
+        <span class="thumb-logo">VitaNova</span>
+        <div class="thumb-play"></div>
+        <span class="thumb-number">6 METRI</span>
+        <span class="thumb-subtitle">Crezi că atunci o să poți?</span>
+      </div>
+    </div>
+
+    <!-- Coloana -->
+    <div class="template-card wide-1920 thumbnail thumb-coloana">
+      <span class="dim-label">1920 &times; 1080</span>
+      <div class="template-inner">
+        <span class="thumb-series">Atunci o să pot &middot; Ep. 04</span>
+        <span class="thumb-logo">VitaNova</span>
+        <div class="thumb-play"></div>
+        <span class="thumb-number">L4-L5</span>
+        <span class="thumb-subtitle">Specialiștii tăi ar fi știut.</span>
+      </div>
+    </div>
+
+  </div><!-- /template-row -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       3. DOUĂ VERSIUNI ALE TALE (2 × 1080×1920 vertical)
+       ══════════════════════════════════════════════════════ -->
+  <h2 class="section-title">3 &middot; Două Versiuni Ale Tale</h2>
+  <p class="section-subtitle">Short-form vertical &mdash; 2 templates &times; 1080 &times; 1920 px</p>
+
+  <div class="template-row">
+
+    <!-- Dimineața -->
+    <div class="template-card vert-1080 versiuni vers-dimineata">
+      <span class="dim-label">1080 &times; 1920</span>
+      <div class="template-inner">
+        <div class="split-container">
+          <div class="split-side side-a">
+            <span class="split-label">Versiunea A</span>
+            <div class="split-icon-block">
+              <div class="icon-lines">
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+                <div class="icon-line med"></div>
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+              </div>
+            </div>
+            <div class="split-details">
+              Fără date<br>Fără plan<br>Haos
+            </div>
+          </div>
+          <div class="split-side side-b">
+            <span class="split-label">Versiunea B</span>
+            <div class="split-icon-block">
+              <div class="icon-lines">
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+                <div class="icon-line med"></div>
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+              </div>
+            </div>
+            <div class="split-details">
+              Date reale<br>Plan adaptat<br>Context
+            </div>
+          </div>
+        </div>
+        <div class="split-bottom">
+          <p>Aceeași persoană. Aceeași zi.<br>Diferența: <strong>context.</strong></p>
+          <div class="logo">VitaNova</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultația -->
+    <div class="template-card vert-1080 versiuni vers-consultatia">
+      <span class="dim-label">1080 &times; 1920</span>
+      <div class="template-inner">
+        <div class="split-container">
+          <div class="split-side side-a">
+            <span class="split-label">O Fotografie</span>
+            <div class="split-icon-block">
+              <div class="icon-lines">
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+                <div class="icon-line med"></div>
+              </div>
+            </div>
+            <div class="split-details">
+              10 minute<br>O dată la 6 luni<br>Fără context
+            </div>
+          </div>
+          <div class="split-side side-b">
+            <span class="split-label">Un Film</span>
+            <div class="split-icon-block">
+              <div class="icon-lines">
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+                <div class="icon-line med"></div>
+                <div class="icon-line"></div>
+                <div class="icon-line short"></div>
+                <div class="icon-line med"></div>
+                <div class="icon-line"></div>
+              </div>
+            </div>
+            <div class="split-details">
+              Continuu<br>Monitorizare reală<br>Date în timp real
+            </div>
+          </div>
+        </div>
+        <div class="split-bottom">
+          <p><strong>Film, nu fotografie.</strong></p>
+          <div class="logo">VitaNova</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /template-row -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       4. TWITTER / X ONE-LINERS (4 × 1200×675)
+       ══════════════════════════════════════════════════════ -->
+  <h2 class="section-title">4 &middot; Twitter / X One-Liners</h2>
+  <p class="section-subtitle">Minimal text posts &mdash; 4 templates &times; 1200 &times; 675 px</p>
+
+  <div class="template-row">
+
+    <!-- Tweet 1 -->
+    <div class="template-card tw-1200 twitter-card tw-accent-red">
+      <span class="dim-label">1200 &times; 675</span>
+      <div class="template-inner">
+        <p class="tw-text">El nu a murit din cauza glonțului.<br>A murit din cauza celor 170 de metri.</p>
+        <span class="tw-logo">VitaNova</span>
+        <div class="tw-bar"></div>
+      </div>
+    </div>
+
+    <!-- Tweet 2 -->
+    <div class="template-card tw-1200 twitter-card tw-accent-amber">
+      <span class="dim-label">1200 &times; 675</span>
+      <div class="template-inner">
+        <p class="tw-text">Crezi că atunci o să poți?<br>Dacă acum nu poți?</p>
+        <span class="tw-logo">VitaNova</span>
+        <div class="tw-bar"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="template-row">
+
+    <!-- Tweet 3 -->
+    <div class="template-card tw-1200 twitter-card tw-accent-cyan">
+      <span class="dim-label">1200 &times; 675</span>
+      <div class="template-inner">
+        <p class="tw-text">Medicina continuă, nu episodică.<br>Film, nu fotografie.</p>
+        <span class="tw-logo">VitaNova</span>
+        <div class="tw-bar"></div>
+      </div>
+    </div>
+
+    <!-- Tweet 4 -->
+    <div class="template-card tw-1200 twitter-card tw-accent-green">
+      <span class="dim-label">1200 &times; 675</span>
+      <div class="template-inner">
+        <p class="tw-text">VitaNova ar fi știut.<br><span style="font-family:var(--font-mono);color:var(--green);font-size:0.95em;">Readiness Score: 34/100.</span></p>
+        <span class="tw-logo">VitaNova</span>
+        <div class="tw-bar"></div>
+      </div>
+    </div>
+
+  </div><!-- /template-row -->
+
+</main>
+
+</body>
+</html>

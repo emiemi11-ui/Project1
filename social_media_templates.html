@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitaNova — Social Media Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #060608;
+    color: #E8EEFF;
+    font-family: 'DM Sans', sans-serif;
+    padding: 60px 20px;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .page-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: #E8EEFF;
+    margin-bottom: 12px;
+  }
+
+  .page-header p {
+    font-size: 14px;
+    color: #B4C3F0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
+  }
+
+  .section-heading h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #00d4ff;
+    margin-bottom: 8px;
+  }
+
+  .section-heading p {
+    font-size: 13px;
+    color: #555;
+    letter-spacing: 2px;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  /* === NUMERELE NU MINT CARDS === */
+  .card-nnm {
+    width: 1080px;
+    height: 1080px;
+    background: #0a0a0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 100px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 0 80px rgba(0,0,0,0.8),
+      0 0 160px rgba(0,0,0,0.4),
+      inset 0 0 120px rgba(0,0,0,0.3);
+  }
+
+  .card-nnm::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(0,212,255,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-nnm.amber-accent::before {
+    background: radial-gradient(ellipse at 50% 30%, rgba(240,160,0,0.03) 0%, transparent 70%);
+  }
+
+  .card-nnm.red-accent::before {
+    background: radial-gradient(ellipse at 50% 30%, rgba(232,48,80,0.03) 0%, transparent 70%);
+  }
+
+  .card-nnm .series-label {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: rgba(180,195,240,0.3);
+  }
+
+  .card-nnm .big-number {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 110px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: #00d4ff;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  .card-nnm .big-number.amber { color: #F0A000; }
+  .card-nnm .big-number.red { color: #E83050; }
+  .card-nnm .big-number.green { color: #00E5A0; }
+
+  .card-nnm .big-number::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: currentColor;
+    opacity: 0.3;
+  }
+
+  .card-nnm .context {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #B4C3F0;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .card-nnm .subtext {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(180,195,240,0.5);
+    max-width: 550px;
+    margin-bottom: 40px;
+  }
+
+  .card-nnm .question {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #E8EEFF;
+    max-width: 550px;
+    line-height: 1.5;
+  }
+
+  .card-nnm .answer {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #00d4ff;
+    margin-top: 10px;
+  }
+
+  .card-nnm .logo {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(180,195,240,0.2);
+  }
+
+  /* === DOUA VERSIUNI CARDS === */
+  .card-dv {
+    width: 1080px;
+    height: 1080px;
+    background: #0a0a0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 0 80px rgba(0,0,0,0.8),
+      0 0 160px rgba(0,0,0,0.4);
+  }
+
+  .card-dv .dv-header {
+    padding: 50px 60px 30px;
+    text-align: center;
+  }
+
+  .card-dv .dv-header .series-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: rgba(180,195,240,0.3);
+    margin-bottom: 12px;
+  }
+
+  .card-dv .dv-header .episode-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #E8EEFF;
+  }
+
+  .card-dv .dv-columns {
+    display: flex;
+    flex: 1;
+    padding: 20px 40px;
+    gap: 0;
+  }
+
+  .card-dv .dv-col {
+    flex: 1;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card-dv .dv-col.col-left {
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .card-dv .dv-col .col-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid;
+  }
+
+  .card-dv .dv-col.col-left .col-label {
+    color: #E83050;
+    border-color: rgba(232,48,80,0.3);
+  }
+
+  .card-dv .dv-col.col-right .col-label {
+    color: #00E5A0;
+    border-color: rgba(0,229,160,0.3);
+  }
+
+  .card-dv .dv-col .col-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .card-dv .dv-col .col-items li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .card-dv .dv-col.col-left .col-items li {
+    color: rgba(232,48,80,0.7);
+  }
+
+  .card-dv .dv-col.col-left .col-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(232,48,80,0.3);
+  }
+
+  .card-dv .dv-col.col-right .col-items li {
+    color: rgba(0,229,160,0.8);
+  }
+
+  .card-dv .dv-col.col-right .col-items li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    font-family: 'DM Mono', monospace;
+    color: rgba(0,229,160,0.4);
+  }
+
+  .card-dv .dv-col.col-right .col-items li .metric {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: #00E5A0;
+    background: rgba(0,229,160,0.08);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+
+  .card-dv .dv-footer {
+    padding: 30px 60px 50px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .card-dv .dv-footer .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #B4C3F0;
+    margin-bottom: 15px;
+  }
+
+  .card-dv .dv-footer .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(180,195,240,0.2);
+  }
+
+  /* Glassmorphism overlays for DV cards */
+  .card-dv .dv-col.col-left::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(232,48,80,0.02) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .card-dv .dv-col.col-right::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(0,229,160,0.02) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* === TWITTER ONE-LINER CARDS === */
+  .card-twitter {
+    width: 1080px;
+    height: 1080px;
+    background: #0a0a0f;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 140px 120px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 0 80px rgba(0,0,0,0.8),
+      0 0 160px rgba(0,0,0,0.4);
+  }
+
+  .card-twitter::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(0,212,255,0.015) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-twitter .tweet-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.35;
+    color: #E8EEFF;
+  }
+
+  .card-twitter .tweet-text .highlight-cyan {
+    color: #00d4ff;
+  }
+
+  .card-twitter .tweet-text .highlight-red {
+    color: #E83050;
+  }
+
+  .card-twitter .tweet-text .highlight-amber {
+    color: #F0A000;
+  }
+
+  .card-twitter .tweet-metric {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    color: #E83050;
+    margin-top: 30px;
+    letter-spacing: 2px;
+  }
+
+  .card-twitter .logo {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: rgba(180,195,240,0.15);
+  }
+
+  .card-twitter .x-handle {
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: rgba(180,195,240,0.2);
+  }
+
+  /* === RESPONSIVE SCALING === */
+  @media (max-width: 1120px) {
+    .card-nnm, .card-dv, .card-twitter {
+      width: 90vw;
+      height: 90vw;
+    }
+    .card-nnm .big-number { font-size: 10vw; }
+    .card-nnm .context { font-size: 1.8vw; }
+    .card-nnm .question { font-size: 2vw; }
+    .card-twitter .tweet-text { font-size: 3.8vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>VitaNova</h1>
+  <p>Social Media Templates &mdash; Ready to Screenshot &amp; Post</p>
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECTION 1: NUMERELE NU MINT                  -->
+<!-- ============================================ -->
+<div class="section-heading">
+  <h2>Numerele Nu Mint</h2>
+  <p>Serie de 4 template-uri &mdash; Date care vorbesc singure</p>
+</div>
+
+<div class="cards-container">
+
+  <!-- NNM Template 1: 73% -->
+  <div class="card-nnm">
+    <div class="series-label">Numerele nu mint</div>
+    <div class="big-number">73%</div>
+    <div class="context">
+      din militarii r&#259;ni&#539;i &#238;n antrenament aveau semne de oboseal&#259; extrem&#259; cu 48h &#238;nainte de incident.
+    </div>
+    <div class="question">Cine le-a citit semnele?</div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+  <!-- NNM Template 2: 3.5 ore -->
+  <div class="card-nnm">
+    <div class="series-label">Numerele nu mint</div>
+    <div class="big-number amber">3.5 ore</div>
+    <div class="context">
+      At&#226;t a dormit &#238;nainte s&#259; ridice 140kg.
+    </div>
+    <div class="subtext">
+      Antrenorul nu &#537;tia. Medicul nu &#537;tia. Nimeni nu &#537;tia.
+    </div>
+    <div class="answer">VitaNova ar fi &#537;tiut.</div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+  <!-- NNM Template 3: $0 -->
+  <div class="card-nnm red-accent">
+    <div class="series-label">Numerele nu mint</div>
+    <div class="big-number red">$0</div>
+    <div class="context">
+      At&#226;t comunic&#259; acum medicul, psihologul &#537;i antrenorul t&#259;u &#238;ntre ei.
+    </div>
+    <div class="subtext">
+      Zero date. Zero context. Zero coordonare.
+    </div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+  <!-- NNM Template 4: 10 minute -->
+  <div class="card-nnm amber-accent">
+    <div class="series-label">Numerele nu mint</div>
+    <div class="big-number amber">10 minute</div>
+    <div class="context">
+      At&#226;t te vede medicul t&#259;u. O dat&#259; la 6 luni.<br>
+      O fotografie, nu un film.
+    </div>
+    <div class="question">Cum ia decizii din o fotografie?</div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECTION 2: DOUA VERSIUNI ALE TALE            -->
+<!-- ============================================ -->
+<div class="section-heading">
+  <h2>Dou&#259; Versiuni Ale Tale</h2>
+  <p>Compara&#539;ii side-by-side &mdash; Aceea&#537;i persoan&#259;, rezultate diferite</p>
+</div>
+
+<div class="cards-container">
+
+  <!-- DV Episode: Dimineata -->
+  <div class="card-dv">
+    <div class="dv-header">
+      <div class="series-label">Dou&#259; versiuni ale tale</div>
+      <div class="episode-title">Diminea&#539;a</div>
+    </div>
+    <div class="dv-columns">
+      <div class="dv-col col-left">
+        <div class="col-label">F&#259;r&#259; VitaNova</div>
+        <ul class="col-items">
+          <li>Alarma sun&#259; la 6:00. Snooze.</li>
+          <li>Alarma sun&#259; la 6:15. Snooze.</li>
+          <li>Alarma sun&#259; la 6:30. Se treze&#537;te gr&#259;bit.</li>
+          <li>Cafeaua e singura strategie.</li>
+          <li>Ajunge la antrenament obosit, rigid.</li>
+          <li>Se for&#539;eaz&#259;. "Merge &#537;i a&#537;a."</li>
+          <li>La minutul 40: &#238;ntindere muscular&#259;.</li>
+          <li>2 s&#259;pt&#259;m&#226;ni pe tus&#259;.</li>
+        </ul>
+      </div>
+      <div class="dv-col col-right">
+        <div class="col-label">Cu VitaNova</div>
+        <ul class="col-items">
+          <li>Ceasul vibreaz&#259; la 6:15 &mdash; end of sleep cycle.</li>
+          <li>Readiness Score:<span class="metric">82/100</span></li>
+          <li>Recomandare: intensitate medie, focus mobilitate.</li>
+          <li>Antrenorul vede acela&#537;i scor.</li>
+          <li>Antrenamentul e adaptat &#238;nainte s&#259; &#238;nceap&#259;.</li>
+          <li>Performa&#539;&#259; consistent&#259;. Zero accident&#259;ri.</li>
+          <li>La sf&#226;r&#537;itul lunii: +12% progres.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dv-footer">
+      <div class="tagline">Aceea&#537;i persoan&#259;. Aceea&#537;i zi. Diferen&#539;a: context.</div>
+      <div class="logo">VitaNova</div>
+    </div>
+  </div>
+
+  <!-- DV Episode: Consultatia -->
+  <div class="card-dv">
+    <div class="dv-header">
+      <div class="series-label">Dou&#259; versiuni ale tale</div>
+      <div class="episode-title">Consulta&#539;ia</div>
+    </div>
+    <div class="dv-columns">
+      <div class="dv-col col-left">
+        <div class="col-label">F&#259;r&#259; VitaNova</div>
+        <ul class="col-items">
+          <li>"Domn' doctor, m&#259; simt cam obosit."</li>
+          <li>"De c&#226;nd?"</li>
+          <li>"Nu &#537;tiu... de ceva timp."</li>
+          <li>Analize standard. Totul "&#238;n parametri."</li>
+          <li>"Dormi&#539;i mai mult."</li>
+          <li>Consult 10 minute. Urm&#259;torul: peste 6 luni.</li>
+          <li>Pacientul ghice&#537;te simptomele.</li>
+          <li>Medicul ghice&#537;te cauza.</li>
+        </ul>
+      </div>
+      <div class="dv-col col-right">
+        <div class="col-label">Cu VitaNova</div>
+        <ul class="col-items">
+          <li>Medicul deschide dashboard-ul.</li>
+          <li>HRV trending down:<span class="metric">-18% / 30 zile</span></li>
+          <li>Corela&#539;ie somn-stres:<span class="metric">r = 0.81</span></li>
+          <li>Pattern identificat: episode nocturne repetitive.</li>
+          <li>Recomandare bazat&#259; pe 180 de zile de date.</li>
+          <li>Interven&#539;ie &#539;intit&#259;, nu generic&#259;.</li>
+          <li>Film, nu fotografie.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="dv-footer">
+      <div class="tagline">Film, nu fotografie.</div>
+      <div class="logo">VitaNova</div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ============================================ -->
+<!-- SECTION 3: TWITTER / X ONE-LINERS           -->
+<!-- ============================================ -->
+<div class="section-heading">
+  <h2>Twitter / X One-Liners</h2>
+  <p>Template-uri minimale &mdash; O singur&#259; propozi&#539;ie puternic&#259;</p>
+</div>
+
+<div class="cards-container">
+
+  <!-- Twitter 1 -->
+  <div class="card-twitter">
+    <div class="x-handle">@VitaNova</div>
+    <div class="tweet-text">
+      El nu a murit din cauza glon&#539;ului.<br><br>
+      A murit din cauza celor <span class="highlight-red">170 de metri</span>.
+    </div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+  <!-- Twitter 2 -->
+  <div class="card-twitter">
+    <div class="x-handle">@VitaNova</div>
+    <div class="tweet-text">
+      <span class="highlight-cyan">Film</span>, nu fotografie.
+    </div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+  <!-- Twitter 3 -->
+  <div class="card-twitter">
+    <div class="x-handle">@VitaNova</div>
+    <div class="tweet-text">
+      VitaNova <span class="highlight-cyan">ar fi &#537;tiut</span>.
+    </div>
+    <div class="tweet-metric">Readiness Score: 34/100</div>
+    <div class="logo">VitaNova</div>
+  </div>
+
+</div>
+
+<div style="height: 120px;"></div>
+
+</body>
+</html>

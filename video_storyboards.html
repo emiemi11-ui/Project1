@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitaNova — "ATUNCI O SĂ POT" Video Storyboards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #03050A;
+    --bg-panel: #0a0e1a;
+    --bg-elevated: #111729;
+    --bg-card: #0d1220;
+    --text-primary: #E8EEFF;
+    --text-secondary: #B4C3F0;
+    --text-dim: #6b7aaa;
+    --cyan: #00d4ff;
+    --green: #00E5A0;
+    --amber: #F0A000;
+    --red: #E83050;
+    --border: #1a2240;
+    --border-light: #253060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0,212,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    border: 1px solid rgba(0,212,255,0.25);
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+  .cover-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+  .cover-logo span { color: var(--cyan); }
+  .cover h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .cover-subtitle {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-meta-item {
+    text-align: center;
+  }
+  .cover-meta-item dt {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+  }
+  .cover-meta-item dd {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+  .cover-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--cyan);
+    margin: 3rem auto 1.5rem;
+  }
+  .cover-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .toc h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .toc-list { list-style: none; }
+  .toc-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(26,34,64,0.5);
+  }
+  .toc-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--cyan);
+    min-width: 2rem;
+  }
+  .toc-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  .toc-dur {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+  .toc-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    background: rgba(0,212,255,0.08);
+    color: var(--cyan);
+  }
+  .toc-type.short {
+    background: rgba(0,229,160,0.08);
+    color: var(--green);
+  }
+
+  /* ── VIDEO SECTION ── */
+  .video-section {
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--border);
+    position: relative;
+  }
+  .video-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 400px;
+    background: radial-gradient(ellipse at top center, rgba(0,212,255,0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .video-header {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+  .video-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.5rem;
+  }
+  .video-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+  }
+  .video-title .ro { color: var(--text-secondary); font-weight: 600; }
+  .video-meta-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .meta-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .meta-chip strong { color: var(--text-secondary); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .panel {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .panel-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .panel-num {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-light);
+    position: relative;
+  }
+
+  .panel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .panel-card:hover { border-color: var(--border-light); }
+
+  .panel-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .scene-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+  }
+  .scene-tag.setup { background: rgba(0,212,255,0.1); color: var(--cyan); border: 1px solid rgba(0,212,255,0.2); }
+  .scene-tag.split-left { background: rgba(0,229,160,0.1); color: var(--green); border: 1px solid rgba(0,229,160,0.2); }
+  .scene-tag.split-right { background: rgba(232,48,80,0.1); color: var(--red); border: 1px solid rgba(232,48,80,0.2); }
+  .scene-tag.text-screen { background: rgba(232,226,240,0.08); color: var(--text-primary); border: 1px solid rgba(232,226,240,0.15); }
+  .scene-tag.black-screen { background: rgba(255,255,255,0.03); color: var(--text-dim); border: 1px solid rgba(255,255,255,0.08); }
+  .scene-tag.white-screen { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+  .scene-tag.question { background: rgba(240,160,0,0.1); color: var(--amber); border: 1px solid rgba(240,160,0,0.2); }
+  .scene-tag.vo { background: rgba(240,160,0,0.08); color: var(--amber); border: 1px solid rgba(240,160,0,0.15); }
+  .scene-tag.logo { background: rgba(0,212,255,0.06); color: var(--cyan); border: 1px solid rgba(0,212,255,0.12); }
+  .scene-tag.solution { background: rgba(0,229,160,0.12); color: var(--green); border: 1px solid rgba(0,229,160,0.25); }
+  .scene-tag.silence { background: rgba(255,255,255,0.02); color: var(--text-dim); border: 1px solid rgba(255,255,255,0.06); }
+  .scene-tag.context { background: rgba(240,160,0,0.08); color: var(--amber); border: 1px solid rgba(240,160,0,0.15); }
+  .scene-tag.single-frame { background: rgba(232,48,80,0.12); color: var(--red); border: 1px solid rgba(232,48,80,0.2); }
+
+  .panel-duration {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .panel-card-body { padding: 1.5rem; }
+
+  .panel-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .panel-description strong { color: var(--text-primary); font-weight: 600; }
+
+  .vo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--cyan);
+    background: rgba(0,212,255,0.04);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  .vo-text.whispered {
+    border-left-color: var(--amber);
+    background: rgba(240,160,0,0.04);
+  }
+
+  .impact-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    padding: 1.25rem 1.5rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 3px;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  .impact-text.white-bg {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  .impact-text.red-accent { border-left: 3px solid var(--red); text-align: left; }
+  .impact-text.amber-accent { border-left: 3px solid var(--amber); text-align: left; }
+  .impact-text.green-accent { border-left: 3px solid var(--green); text-align: left; }
+
+  .notes-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .note-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .note-tag.camera { color: var(--cyan); border-color: rgba(0,212,255,0.15); }
+  .note-tag.audio { color: var(--amber); border-color: rgba(240,160,0,0.15); }
+  .note-tag.visual { color: var(--green); border-color: rgba(0,229,160,0.15); }
+
+  /* ── TINT STRIPS ── */
+  .panel-card.tint-setup { border-left: 3px solid rgba(0,212,255,0.4); }
+  .panel-card.tint-split-left { border-left: 3px solid rgba(0,229,160,0.4); }
+  .panel-card.tint-split-right { border-left: 3px solid rgba(232,48,80,0.4); }
+  .panel-card.tint-text { border-left: 3px solid rgba(255,255,255,0.2); }
+  .panel-card.tint-black { border-left: 3px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.3); }
+  .panel-card.tint-white { border-left: 3px solid rgba(255,255,255,0.5); background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, var(--bg-card) 100%); }
+  .panel-card.tint-question { border-left: 3px solid rgba(240,160,0,0.4); }
+  .panel-card.tint-logo { border-left: 3px solid rgba(0,212,255,0.25); }
+  .panel-card.tint-vo { border-left: 3px solid rgba(240,160,0,0.3); }
+  .panel-card.tint-solution { border-left: 3px solid rgba(0,229,160,0.5); }
+  .panel-card.tint-silence { border-left: 3px solid transparent; background: rgba(0,0,0,0.4); }
+  .panel-card.tint-single-frame { border-left: 3px solid rgba(232,48,80,0.5); }
+  .panel-card.tint-context { border-left: 3px solid rgba(240,160,0,0.35); }
+
+  /* ── PRODUCTION NOTES ── */
+  .prod-notes {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 1.5rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .prod-notes h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1rem;
+  }
+  .prod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .prod-item dt {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.25rem;
+  }
+  .prod-item dd {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── SHORT SERIES SECTION ── */
+  .short-section {
+    padding: 5rem 2rem;
+    border-top: 2px solid var(--border);
+    position: relative;
+  }
+  .short-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 300px;
+    background: radial-gradient(ellipse at top center, rgba(0,229,160,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .short-header {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .short-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid rgba(0,229,160,0.25);
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  .short-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .short-header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+  }
+
+  .short-episodes {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+  }
+
+  .short-episode {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .short-ep-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .short-ep-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+  .short-ep-dur {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--green);
+  }
+  .short-ep-body { padding: 1.5rem; }
+
+  .short-panel {
+    display: flex;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(26,34,64,0.4);
+  }
+  .short-panel:last-child { border-bottom: none; }
+  .short-panel-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    min-width: 1.5rem;
+    padding-top: 0.15rem;
+  }
+  .short-panel-content { flex: 1; }
+  .short-panel-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 0.25rem;
+  }
+  .short-panel-tag.green-t { color: var(--green); }
+  .short-panel-tag.red-t { color: var(--red); }
+  .short-panel-tag.amber-t { color: var(--amber); }
+  .short-panel-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .doc-footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .doc-footer .logo-foot {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--text-primary);
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5rem;
+  }
+  .doc-footer .logo-foot span { color: var(--cyan); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .timeline::before { display: none; }
+    .panel { grid-template-columns: 1fr; gap: 0; }
+    .panel-num-col { flex-direction: row; padding: 0 0 0.5rem; }
+    .short-episodes { grid-template-columns: 1fr; }
+    .cover-meta { gap: 1.5rem; }
+    .prod-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; }
+    .panel-card { border: 1px solid #ccc; background: #fafafa; }
+    .video-section { page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     COVER PAGE
+     ═══════════════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-badge">Confidential &mdash; Production Document</div>
+  <div class="cover-logo">VITA<span>NOVA</span></div>
+  <h1>ATUNCI O SĂ POT</h1>
+  <p class="cover-subtitle">Video Series &mdash; Complete Storyboards</p>
+
+  <div class="cover-meta">
+    <dl class="cover-meta-item">
+      <dt>Format</dt>
+      <dd>Long-form + Shorts</dd>
+    </dl>
+    <dl class="cover-meta-item">
+      <dt>Videos</dt>
+      <dd>4 Long + 2 Short</dd>
+    </dl>
+    <dl class="cover-meta-item">
+      <dt>Duration</dt>
+      <dd>10&ndash;14 min total</dd>
+    </dl>
+    <dl class="cover-meta-item">
+      <dt>Platform</dt>
+      <dd>YouTube / Instagram / TikTok</dd>
+    </dl>
+    <dl class="cover-meta-item">
+      <dt>Target</dt>
+      <dd>Military &amp; First Responders</dd>
+    </dl>
+    <dl class="cover-meta-item">
+      <dt>Version</dt>
+      <dd>1.0 &mdash; 2026-03-08</dd>
+    </dl>
+  </div>
+
+  <div class="cover-divider"></div>
+  <p class="cover-note">VITA NOVA &mdash; PRODUCTION STORYBOARD PACKAGE</p>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+     ═══════════════════════════════════════════════════════ -->
+<nav class="toc">
+  <h2>Table of Contents</h2>
+  <ol class="toc-list">
+    <li>
+      <span class="toc-num">01</span>
+      <span class="toc-title">Grenada</span>
+      <span class="toc-dur">2&ndash;3 min</span>
+      <span class="toc-type">long</span>
+    </li>
+    <li>
+      <span class="toc-num">02</span>
+      <span class="toc-title">Partenerul Rănit</span>
+      <span class="toc-dur">2&ndash;3 min</span>
+      <span class="toc-type">long</span>
+    </li>
+    <li>
+      <span class="toc-num">03</span>
+      <span class="toc-title">Fr&acirc;nghia</span>
+      <span class="toc-dur">2&ndash;3 min</span>
+      <span class="toc-type">long</span>
+    </li>
+    <li>
+      <span class="toc-num">04</span>
+      <span class="toc-title">Coloana <span style="color:var(--red);font-size:0.7rem;margin-left:0.25rem;">&#9679; SERIES FINALE</span></span>
+      <span class="toc-dur">2&ndash;3 min</span>
+      <span class="toc-type">long</span>
+    </li>
+    <li>
+      <span class="toc-num">S1</span>
+      <span class="toc-title">Două Versiuni Ale Tale &mdash; Ep. 1</span>
+      <span class="toc-dur">30&ndash;60s</span>
+      <span class="toc-type short">short</span>
+    </li>
+    <li>
+      <span class="toc-num">S2</span>
+      <span class="toc-title">Două Versiuni Ale Tale &mdash; Ep. 2</span>
+      <span class="toc-dur">30&ndash;60s</span>
+      <span class="toc-type short">short</span>
+    </li>
+  </ol>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     VIDEO 1 — GRENADA
+     ═══════════════════════════════════════════════════════ -->
+<section class="video-section" id="v1">
+  <div class="video-header">
+    <div class="video-number">Video 01 / 04</div>
+    <h2 class="video-title">"Grenada" <span class="ro">&mdash; Grenada defensivă</span></h2>
+    <div class="video-meta-row">
+      <span class="meta-chip"><strong>Durată:</strong> 2&ndash;3 min</span>
+      <span class="meta-chip"><strong>Platform:</strong> YouTube, Instagram Reels</span>
+      <span class="meta-chip"><strong>Ton:</strong> Documentar tactic, tensionat</span>
+      <span class="meta-chip"><strong>Target:</strong> Militari activi, rezerviști</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">01</div></div>
+      <div class="panel-card tint-setup">
+        <div class="panel-card-header">
+          <span class="scene-tag setup">SETUP</span>
+          <span class="panel-duration">~20s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Imagine de c&acirc;mp.</strong> P&acirc;m&acirc;nt, praf, lumină naturală dură. O grenadă defensivă stă pe sol &mdash; focus rack de la sol la grenadă.</p>
+          <div class="vo-text">"Grenada defensivă M67 &mdash; 4.2 secunde de la degoupillare la detonare. Raza letală: 5 metri. Raza de rănire: 15 metri."</div>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Macro lens, rack focus</span>
+            <span class="note-tag camera">CAM: Tripod, static frame</span>
+            <span class="note-tag audio">AUDIO: Ambient wind, distant rumble</span>
+            <span class="note-tag visual">VFX: Data overlay pe ecran &mdash; cifre militare</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">02</div></div>
+      <div class="panel-card tint-split-left">
+        <div class="panel-card-header">
+          <span class="scene-tag split-left">SPLIT LEFT</span>
+          <span class="panel-duration">~25s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul antrenat</strong> &mdash; reacție &icirc;n 0.8s, sprint 15m, se aruncă la păm&acirc;nt. Mișcare fluidă, controlată. Praful explodează &icirc;n jurul lui la aterizare.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Wide shot lateral</span>
+            <span class="note-tag camera">CAM: Slow-mo transition la impact cu solul</span>
+            <span class="note-tag visual">VFX: Timer overlay 0.8s &rarr; 4.2s</span>
+            <span class="note-tag visual">VFX: Distanță parcursă: 15m overlay</span>
+            <span class="note-tag audio">AUDIO: Heartbeat slow, controlled breathing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">03</div></div>
+      <div class="panel-card tint-split-right">
+        <div class="panel-card-header">
+          <span class="scene-tag split-right">SPLIT RIGHT</span>
+          <span class="panel-duration">~25s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul nepregătit</strong> &mdash; reacție &icirc;n 1.5s, aleargă 6m, g&acirc;f&acirc;ie, se oprește. Corpul cedeaz&acirc;. Raza de rănire: &icirc;l cuprinde.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Handheld, ușor instabil</span>
+            <span class="note-tag camera">CAM: Close-up pe față &mdash; panică</span>
+            <span class="note-tag audio">AUDIO: Breathing haotic, heavy, gâfâit</span>
+            <span class="note-tag visual">VFX: Timer overlay 1.5s &rarr; 4.2s</span>
+            <span class="note-tag visual">VFX: Distanță parcursă: 6m &mdash; RED zone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">04</div></div>
+      <div class="panel-card tint-text">
+        <div class="panel-card-header">
+          <span class="scene-tag text-screen">TEXT SCREEN</span>
+          <span class="panel-duration">~5s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text">
+            "Nu pot să alerg din fața unei grenade.<br>Mă doare splina."
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: White text on pure black</span>
+            <span class="note-tag visual">VFX: Fade in word by word</span>
+            <span class="note-tag audio">AUDIO: Silence complet</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">05</div></div>
+      <div class="panel-card tint-black">
+        <div class="panel-card-header">
+          <span class="scene-tag black-screen">BLACK SCREEN</span>
+          <span class="panel-duration">2s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description" style="color:var(--text-dim);text-align:center;">Ecran complet negru. 2 secunde de beat. Niciun sunet. Nicio mișcare.</p>
+          <div class="notes-box">
+            <span class="note-tag audio">AUDIO: Dead silence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">06</div></div>
+      <div class="panel-card tint-question">
+        <div class="panel-card-header">
+          <span class="scene-tag question">QUESTION</span>
+          <span class="panel-duration">~5s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text amber-accent">
+            "Tu c&acirc;nd ai aflat ultima dată dacă poți?"
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Text apare slow, centrat</span>
+            <span class="note-tag audio">AUDIO: Single low tone, subtle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 7 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">07</div></div>
+      <div class="panel-card tint-logo">
+        <div class="panel-card-header">
+          <span class="scene-tag logo">LOGO</span>
+          <span class="panel-duration">1s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description" style="text-align:center;">Logo <strong>VitaNova</strong> &mdash; animație minimalistă. Fundal negru. 1 secundă.</p>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Logo fade-in, clean</span>
+            <span class="note-tag audio">AUDIO: Subtle tone resolve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+
+  <div class="prod-notes">
+    <h4>Production Notes &mdash; Video 01</h4>
+    <div class="prod-grid">
+      <dl class="prod-item">
+        <dt>Location</dt>
+        <dd>Outdoor field / military training ground. Dry terrain, dust available.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Equipment</dt>
+        <dd>Cinema camera (2x), macro lens, handheld rig, slow-mo capable (120fps+), wireless audio, wind protection.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Actors</dt>
+        <dd>2 soldiers (1 fit/trained, 1 average build). Military uniforms, gear.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Props</dt>
+        <dd>Inert M67 grenade replica, military webbing, terrain dressing.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Post-Production</dt>
+        <dd>Slow-mo grading, data overlay graphics, timer VFX, color grade: desaturated teal/orange.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Music / SFX</dt>
+        <dd>No music during action. Ambient SFX only. Single tone for question screen.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     VIDEO 2 — PARTENERUL RĂNIT
+     ═══════════════════════════════════════════════════════ -->
+<section class="video-section" id="v2">
+  <div class="video-header">
+    <div class="video-number">Video 02 / 04</div>
+    <h2 class="video-title">"Partenerul Rănit" <span class="ro">&mdash; Evacuare tactică</span></h2>
+    <div class="video-meta-row">
+      <span class="meta-chip"><strong>Durată:</strong> 2&ndash;3 min</span>
+      <span class="meta-chip"><strong>Platform:</strong> YouTube, Instagram Reels</span>
+      <span class="meta-chip"><strong>Ton:</strong> Emoțional, grav, visceral</span>
+      <span class="meta-chip"><strong>Target:</strong> Militari activi, echipe de intervenție</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">01</div></div>
+      <div class="panel-card tint-setup">
+        <div class="panel-card-header">
+          <span class="scene-tag setup">SETUP</span>
+          <span class="panel-duration">~20s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Teren de noapte, lumină roșie.</strong> Atmosferă de urgență. Un soldat zace la pământ &mdash; echipat complet. Altul se apropie.</p>
+          <div class="vo-text">"Evacuare tactică de rănit &mdash; greutate medie partener echipat: 95kg. Distanță medie p&acirc;nă la punct de extracție: 200m."</div>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Low angle, red-gelled light</span>
+            <span class="note-tag audio">AUDIO: Distant gunfire (SFX), radio static</span>
+            <span class="note-tag visual">VFX: Night vision grain overlay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">02</div></div>
+      <div class="panel-card tint-split-left">
+        <div class="panel-card-header">
+          <span class="scene-tag split-left">SPLIT LEFT</span>
+          <span class="panel-duration">~30s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul pregătit</strong> &mdash; Fireman's carry, 95kg pe umeri. 200m &icirc;n 3 minute. Pași greoi dar constanți. Ajunge la punctul de extracție. Predă partenerul medicului.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Tracking shot lateral, steady</span>
+            <span class="note-tag camera">CAM: Close-up pe fața celui care cară &mdash; efort dar control</span>
+            <span class="note-tag visual">VFX: Distance counter: 0m &rarr; 200m</span>
+            <span class="note-tag visual">VFX: Timer: 0:00 &rarr; 3:00</span>
+            <span class="note-tag audio">AUDIO: Heavy footsteps, controlled breathing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">03</div></div>
+      <div class="panel-card tint-split-right">
+        <div class="panel-card-header">
+          <span class="scene-tag split-right">SPLIT RIGHT</span>
+          <span class="panel-duration">~30s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul nepregătit</strong> &mdash; Ridică, face 30m, se prăbușește. Partenerul cade la pământ. Nu se mai ridică. Partenerul ră&mdash;m&acirc;ne pe teren.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Handheld, chaotic</span>
+            <span class="note-tag camera">CAM: Overhead drone shot &mdash; doi oameni pe teren, singuri</span>
+            <span class="note-tag visual">VFX: Distance counter: 0m &rarr; 30m &mdash; STOP &mdash; RED</span>
+            <span class="note-tag visual">VFX: Remaining: 170m &mdash; flashing</span>
+            <span class="note-tag audio">AUDIO: Collapse sound, gasping, then silence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">04</div></div>
+      <div class="panel-card tint-text">
+        <div class="panel-card-header">
+          <span class="scene-tag text-screen">TEXT SCREEN</span>
+          <span class="panel-duration">~5s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text red-accent">
+            "Nu pot să-mi car partenerul rănit spre ajutor."
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: White on black, static</span>
+            <span class="note-tag audio">AUDIO: Silence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">05</div></div>
+      <div class="panel-card tint-vo">
+        <div class="panel-card-header">
+          <span class="scene-tag vo">WHISPERED VO</span>
+          <span class="panel-duration">~8s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="vo-text whispered">"El nu a murit din cauza glonțului. A murit din cauza celor 170 de metri."</div>
+          <p class="panel-description" style="color:var(--text-dim);">Ecran negru. Vocea este un șopt &mdash; aproape inaudibilă. Privitorul trebuie să se concentreze să audă.</p>
+          <div class="notes-box">
+            <span class="note-tag audio">AUDIO: Whispered VO, low volume, intimate</span>
+            <span class="note-tag visual">VFX: Black screen, no text during VO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">06</div></div>
+      <div class="panel-card tint-logo">
+        <div class="panel-card-header">
+          <span class="scene-tag logo">LOGO</span>
+          <span class="panel-duration">1s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description" style="text-align:center;">Logo <strong>VitaNova</strong> &mdash; fade in. Fundal negru.</p>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Logo fade-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prod-notes">
+    <h4>Production Notes &mdash; Video 02</h4>
+    <div class="prod-grid">
+      <dl class="prod-item">
+        <dt>Location</dt>
+        <dd>Night shoot &mdash; outdoor terrain, open field. Red gels for lighting. Fog machine optional.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Equipment</dt>
+        <dd>Low-light cinema camera, drone (overhead), red LED panels, handheld rig, lavalier for whispered VO.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Actors</dt>
+        <dd>2 soldiers per scenario (4 total). 1 "wounded" actor (dead weight), 1 fit carrier, 1 unfit carrier. Military gear, ~95kg equipped.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Safety</dt>
+        <dd>Stunt coordinator for carry and collapse. Crash mats hidden on collapse point. Medic on set.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Post-Production</dt>
+        <dd>Night grade, NVG grain overlay, distance/timer VFX, whispered VO mix (very low in mix, intentional).</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     VIDEO 3 — FRÂNGHIA
+     ═══════════════════════════════════════════════════════ -->
+<section class="video-section" id="v3">
+  <div class="video-header">
+    <div class="video-number">Video 03 / 04</div>
+    <h2 class="video-title">"Fr&acirc;nghia" <span class="ro">&mdash; Obstacol NATO</span></h2>
+    <div class="video-meta-row">
+      <span class="meta-chip"><strong>Durată:</strong> 2&ndash;3 min</span>
+      <span class="meta-chip"><strong>Platform:</strong> YouTube, Instagram Reels</span>
+      <span class="meta-chip"><strong>Ton:</strong> Provocator, direct, nemilos</span>
+      <span class="meta-chip"><strong>Target:</strong> Militari, sportivi, tineri activi</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">01</div></div>
+      <div class="panel-card tint-setup">
+        <div class="panel-card-header">
+          <span class="scene-tag setup">SETUP</span>
+          <span class="panel-duration">~15s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Perete de escaladare / structură de antrenament.</strong> O fr&acirc;nghie de 6 metri at&acirc;rnă vertical. Cameră de la bază &mdash; looking up. Fr&acirc;nghia pare infinită.</p>
+          <div class="vo-text">"Obstacol standard NATO: coardă verticală de 6 metri. Timp alocat: 30 de secunde."</div>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Low angle, looking up along rope</span>
+            <span class="note-tag camera">CAM: Shallow DOF, rope sharp, background blown</span>
+            <span class="note-tag audio">AUDIO: Wind, rope creaking</span>
+            <span class="note-tag visual">VFX: Height marker overlay: 0m &rarr; 6m</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">02</div></div>
+      <div class="panel-card tint-split-left">
+        <div class="panel-card-header">
+          <span class="scene-tag split-left">SPLIT LEFT</span>
+          <span class="panel-duration">~20s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul pregătit</strong> &mdash; Urcă fluid, mișcări eficiente, picioare + brațe coordonate. Ajunge &icirc;n v&acirc;rf &icirc;n 18 secunde. Lovește bara de sus. Coboar&acirc; controlat.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Side angle, full body visible</span>
+            <span class="note-tag camera">CAM: Slow-mo on hands gripping rope</span>
+            <span class="note-tag visual">VFX: Timer: 0s &rarr; 18s &mdash; GREEN</span>
+            <span class="note-tag visual">VFX: Height tracker climbing smoothly</span>
+            <span class="note-tag audio">AUDIO: Rope friction, confident grunts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">03</div></div>
+      <div class="panel-card tint-split-right">
+        <div class="panel-card-header">
+          <span class="scene-tag split-right">SPLIT RIGHT</span>
+          <span class="panel-duration">~25s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul nepregătit</strong> &mdash; Urcă 2 metri. Brațele cedează. Alunecă &icirc;napoi. Arsură pe palme de la fr&acirc;nghie. Se uită &icirc;n sus la cei 4 metri răm&acirc;ași.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Close-up on hands &mdash; rope burn</span>
+            <span class="note-tag camera">CAM: Face shot &mdash; defeat, shame</span>
+            <span class="note-tag visual">VFX: Height tracker: 2m &mdash; STOP &mdash; RED</span>
+            <span class="note-tag visual">VFX: Timer still running: 30s passes</span>
+            <span class="note-tag audio">AUDIO: Skin on rope friction (visceral SFX)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">04</div></div>
+      <div class="panel-card tint-text">
+        <div class="panel-card-header">
+          <span class="scene-tag text-screen">TEXT SCREEN</span>
+          <span class="panel-duration">~5s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text">
+            "Nu pot să mă cațăr pe o fr&acirc;nghie.<br>Nu am forța &icirc;n brațe."
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: White on black</span>
+            <span class="note-tag audio">AUDIO: Silence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">05</div></div>
+      <div class="panel-card tint-question">
+        <div class="panel-card-header">
+          <span class="scene-tag question">QUESTION</span>
+          <span class="panel-duration">~8s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text amber-accent">
+            "Crezi că atunci o să poți?<br>Dacă acum nu poți?"
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Two lines, second appears after 2s beat</span>
+            <span class="note-tag audio">AUDIO: Low drone tone, building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prod-notes">
+    <h4>Production Notes &mdash; Video 03</h4>
+    <div class="prod-grid">
+      <dl class="prod-item">
+        <dt>Location</dt>
+        <dd>Military obstacle course or climbing gym with 6m rope. Outdoor preferred for NATO aesthetic.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Equipment</dt>
+        <dd>Cinema camera, telephoto for hand close-ups, slider for vertical tracking, crash mats below.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Actors</dt>
+        <dd>2 soldiers. 1 with strong upper body (can actually rope climb). 1 average (must safely fail at 2m).</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Safety</dt>
+        <dd>Hidden safety harness on "fail" actor. Crash mats. Spotter below frame. Fake rope-burn makeup for close-ups.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Post-Production</dt>
+        <dd>Height/timer VFX overlays, skin friction SFX design, desaturated grade with warm skin tones preserved.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     VIDEO 4 — COLOANA (SERIES FINALE)
+     ═══════════════════════════════════════════════════════ -->
+<section class="video-section" id="v4" style="border-top: 2px solid var(--red);">
+  <div class="video-header">
+    <div class="video-number" style="color:var(--red);">Video 04 / 04 &mdash; SERIES FINALE</div>
+    <h2 class="video-title">"Coloana" <span class="ro">&mdash; Cel mai brutal episod</span></h2>
+    <div class="video-meta-row">
+      <span class="meta-chip"><strong>Durată:</strong> 2&ndash;3 min</span>
+      <span class="meta-chip"><strong>Platform:</strong> YouTube (primary), toate</span>
+      <span class="meta-chip" style="border-color:var(--red);color:var(--red);"><strong>Ton:</strong> BRUTAL &mdash; impact maxim</span>
+      <span class="meta-chip"><strong>Target:</strong> Toți &mdash; cel mai larg reach</span>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <!-- Panel 1 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">01</div></div>
+      <div class="panel-card tint-setup">
+        <div class="panel-card-header">
+          <span class="scene-tag setup">SETUP</span>
+          <span class="panel-duration">~15s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Sală de forță, atmosferă normală.</strong> Lumini de neon, oameni &icirc;n fundal. Totul pare obișnuit. Un soldat se apropie de bară.</p>
+          <div class="vo-text">"&Icirc;ncercare forțată de ridicare. Halteră de 140kg. Fără pregătire progresivă. Fără formă corectă. Fără monitorizare."</div>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Wide establishing shot &mdash; normal gym</span>
+            <span class="note-tag camera">CAM: Slow push-in pe soldat</span>
+            <span class="note-tag audio">AUDIO: Normal gym ambiance, music faint</span>
+            <span class="note-tag visual">VFX: Data text overlay &mdash; clinical, detached</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">02</div></div>
+      <div class="panel-card tint-single-frame">
+        <div class="panel-card-header">
+          <span class="scene-tag single-frame">SINGLE FRAME</span>
+          <span class="panel-duration">~20s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description"><strong>Soldatul pune greutatea pe spate. Coboară. Spatele cedează. Cade.</strong></p>
+          <p class="panel-description">Un singur cadru continuu. Fără tăietură. Mișcarea este reală &mdash; vedem exact momentul &icirc;n care corpul se rupe. Bara cade. El cade. Sunetul din sală se oprește.</p>
+          <div class="notes-box">
+            <span class="note-tag camera">CAM: Single continuous shot &mdash; NO CUTS</span>
+            <span class="note-tag camera">CAM: Side angle, full body, locked tripod</span>
+            <span class="note-tag camera">CAM: Slow-mo la momentul colapsului</span>
+            <span class="note-tag audio">AUDIO: All gym sound CUTS at moment of injury</span>
+            <span class="note-tag audio">AUDIO: Only sound = bar hitting floor</span>
+            <span class="note-tag visual">SAFETY: Stunt-choreographed fall. Hidden pads. Actor trained.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">03</div></div>
+      <div class="panel-card tint-white">
+        <div class="panel-card-header">
+          <span class="scene-tag white-screen">WHITE SCREEN</span>
+          <span class="panel-duration">~5s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text white-bg">
+            Fractură vertebrală L4-L5.<br>
+            Compresie medulară.<br>
+            Paraplegie.
+          </div>
+          <p class="panel-description" style="color:var(--text-dim);text-align:center;margin-top:0.75rem;"><em>Ecran ALB &mdash; nu negru. Ca un spital. Ca o lumină de operație.</em></p>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: WHITE screen (deliberate contrast to series)</span>
+            <span class="note-tag visual">VFX: Black text, medical font, appears line by line</span>
+            <span class="note-tag audio">AUDIO: Flatline-like tone, sterile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">04</div></div>
+      <div class="panel-card tint-silence">
+        <div class="panel-card-header">
+          <span class="scene-tag silence">SILENCE</span>
+          <span class="panel-duration">3s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description" style="color:var(--text-dim);text-align:center;">3 secunde de liniște completă. Ecranul alb persistent. Nimic nu se mișcă.</p>
+          <div class="notes-box">
+            <span class="note-tag audio">AUDIO: Absolute silence &mdash; 3 full seconds</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">05</div></div>
+      <div class="panel-card tint-context">
+        <div class="panel-card-header">
+          <span class="scene-tag context">CONTEXT</span>
+          <span class="panel-duration">~12s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text amber-accent" style="text-align:left;font-family:'DM Sans',sans-serif;font-weight:400;font-size:0.95rem;line-height:1.8;">
+            Antrenorul lui nu avea date despre recuperarea lui din ziua precedentă.<br>
+            Medicul lui nu știa că dormise 3.5 ore.<br>
+            Nimeni nu i-a spus să nu ridice azi.
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Each line appears separately, 3s apart</span>
+            <span class="note-tag visual">VFX: Black text on dark background</span>
+            <span class="note-tag audio">AUDIO: Low ambient drone, barely audible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">06</div></div>
+      <div class="panel-card tint-solution">
+        <div class="panel-card-header">
+          <span class="scene-tag solution">SOLUTION</span>
+          <span class="panel-duration">~8s</span>
+        </div>
+        <div class="panel-card-body">
+          <div class="impact-text green-accent">
+            VitaNova știa.<br>
+            <span style="font-family:'DM Mono',monospace;font-size:0.9em;color:var(--red);">Readiness Score: 34/100.</span><br>
+            <span style="font-size:0.85em;color:var(--text-dim);">Dar nu avea VitaNova.</span>
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: "VitaNova știa." &mdash; GREEN text, appears first</span>
+            <span class="note-tag visual">VFX: Score appears with gauge animation &mdash; RED zone</span>
+            <span class="note-tag visual">VFX: Last line fades in slowly, dim</span>
+            <span class="note-tag audio">AUDIO: Subtle resolve tone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 7 -->
+    <div class="panel">
+      <div class="panel-num-col"><div class="panel-num">07</div></div>
+      <div class="panel-card tint-logo">
+        <div class="panel-card-header">
+          <span class="scene-tag logo">LOGO + TAGLINE</span>
+          <span class="panel-duration">~3s</span>
+        </div>
+        <div class="panel-card-body">
+          <p class="panel-description" style="text-align:center;">Logo <strong>VitaNova</strong></p>
+          <div class="impact-text" style="margin-top:0.75rem;border:1px solid rgba(0,212,255,0.2);background:rgba(0,212,255,0.04);">
+            "Specialiștii tăi ar fi știut."
+          </div>
+          <div class="notes-box">
+            <span class="note-tag visual">VFX: Logo + tagline fade in together</span>
+            <span class="note-tag visual">VFX: Tagline below logo, smaller, cyan accent</span>
+            <span class="note-tag audio">AUDIO: Clean resolve, single note</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="prod-notes">
+    <h4>Production Notes &mdash; Video 04 (FINALE)</h4>
+    <div class="prod-grid">
+      <dl class="prod-item">
+        <dt>Location</dt>
+        <dd>Commercial gym or military fitness facility. Normal, well-lit environment (contrast to other videos).</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Equipment</dt>
+        <dd>Cinema camera (tripod, locked), 120fps slow-mo capability, controlled lighting for gym environment.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Actors</dt>
+        <dd>1 main actor (trained stunt performer). Background extras (regular gym-goers). No dialogue actors.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Stunts / Safety</dt>
+        <dd>CRITICAL: Choreographed fall with hidden padding under clothing. Rubber barbell plates (140kg visual, lighter actual). Stunt coordinator mandatory. On-set medic. Multiple rehearsals before filming.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Post-Production</dt>
+        <dd>White screen grade, medical text animation, Readiness Score gauge VFX, sound design critical (silence management).</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Legal</dt>
+        <dd>Disclaimer: "Scenă regizată" may be required. Review with legal team. Stunt consent forms.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SHORT SERIES — DOUĂ VERSIUNI ALE TALE
+     ═══════════════════════════════════════════════════════ -->
+<section class="short-section" id="shorts">
+  <div class="short-header">
+    <div class="short-badge">Short Video Series</div>
+    <h2>"DOUĂ VERSIUNI ALE TALE"</h2>
+    <p>Format scurt pentru Instagram Reels / TikTok / YouTube Shorts &mdash; 30&ndash;60 secunde</p>
+  </div>
+
+  <div class="short-episodes">
+
+    <!-- Short Episode 1 -->
+    <div class="short-episode">
+      <div class="short-ep-header">
+        <h3>Ep. 1 &mdash; "Scările"</h3>
+        <span class="short-ep-dur">45s</span>
+      </div>
+      <div class="short-ep-body">
+
+        <div class="short-panel">
+          <span class="short-panel-num">01</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag">SETUP &mdash; 3s</div>
+            <p class="short-panel-desc">Split screen vertical. St&acirc;nga: Soldat pregătit. Dreapta: Soldat nepregătit. Ambii la baza unei clădiri cu 8 etaje. Text overlay: "8 etaje. Echipament complet. C&acirc;t de repede?"</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">02</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag green-t">VERSIUNEA A &mdash; 12s</div>
+            <p class="short-panel-desc">St&acirc;nga: Urcă constant, ritm controlat. Respirație ritmică. Ajunge sus &mdash; gata de acțiune. Timer: 1:45.</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">03</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag red-t">VERSIUNEA B &mdash; 12s</div>
+            <p class="short-panel-desc">Dreapta: Urcă repede primele 3 etaje, &icirc;ncetinește, la etajul 5 se oprește, se sprijină de perete. G&acirc;f&acirc;ie. Ajunge sus &mdash; incapabil de acțiune. Timer: 4:20.</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">04</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag amber-t">TEXT &mdash; 5s</div>
+            <p class="short-panel-desc">"Amenințarea nu așteaptă să &icirc;ți revii." Apoi: Logo VitaNova + "Care versiune ești tu?"</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Short Episode 2 -->
+    <div class="short-episode">
+      <div class="short-ep-header">
+        <h3>Ep. 2 &mdash; "Apa"</h3>
+        <span class="short-ep-dur">40s</span>
+      </div>
+      <div class="short-ep-body">
+
+        <div class="short-panel">
+          <span class="short-panel-num">01</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag">SETUP &mdash; 3s</div>
+            <p class="short-panel-desc">Split screen. Piscină militară. Text: "100m &icirc;not &icirc;n uniformă. Simulare traversare fluviu." Ambii soldați pe marginea bazinului.</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">02</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag green-t">VERSIUNEA A &mdash; 10s</div>
+            <p class="short-panel-desc">St&acirc;nga: &Icirc;noată puternic, ritmic. Uniforma &icirc;l trage dar continuă. Ajunge la celălalt capăt. Iese din apă &mdash; operațional.</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">03</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag red-t">VERSIUNEA B &mdash; 10s</div>
+            <p class="short-panel-desc">Dreapta: &Icirc;noată 30m, obosește, &icirc;ncepe să se lupte cu apa. La 50m semnalează ajutor. Salvamarul intervine. Nu termină.</p>
+          </div>
+        </div>
+
+        <div class="short-panel">
+          <span class="short-panel-num">04</span>
+          <div class="short-panel-content">
+            <div class="short-panel-tag amber-t">TEXT &mdash; 5s</div>
+            <p class="short-panel-desc">"R&acirc;ul nu are salvamar." Apoi: Logo VitaNova + "Care versiune ești tu?"</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /short-episodes -->
+
+  <div class="prod-notes" style="max-width:1200px;margin:2rem auto 0;">
+    <h4>Production Notes &mdash; Short Series</h4>
+    <div class="prod-grid">
+      <dl class="prod-item">
+        <dt>Format</dt>
+        <dd>9:16 vertical (Reels/TikTok/Shorts). Split screen native &mdash; filmed simultaneously with 2 cameras.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Pacing</dt>
+        <dd>Fast cuts. No dead frames. Text overlays appear with motion. Designed for mobile-first consumption.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Music</dt>
+        <dd>Driving beat, minimal &mdash; stops at text reveal. Trending audio hook optional for platform algorithm.</dd>
+      </dl>
+      <dl class="prod-item">
+        <dt>Recurring Elements</dt>
+        <dd>Same split-screen format, same "Care versiune ești tu?" closing, same VitaNova logo treatment. Brand consistency.</dd>
+      </dl>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════ -->
+<footer class="doc-footer">
+  <div class="logo-foot">VITA<span>NOVA</span></div>
+  <p>Production Storyboard Document &mdash; v1.0 &mdash; March 2026</p>
+  <p style="margin-top:0.5rem;">Confidential. For internal production use only.</p>
+</footer>
+
+</body>
+</html>

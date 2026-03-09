@@ -868,6 +868,162 @@ nav {
 }
 .price-cta.solid:hover { background: var(--cold2); box-shadow: 0 0 40px rgba(48,84,216,0.5); }
 
+/* ── REALITY SECTION (SHOCK CONTENT) ────────────────────── */
+.reality-section { padding: 160px 0; background: var(--ink); border-top: 1px solid var(--line); }
+.reality-cards {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  margin-top: 64px;
+  border: 1px solid var(--line);
+}
+.reality-card {
+  padding: 48px 36px;
+  border-right: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.reality-card:last-child { border-right: none; }
+.reality-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+}
+.reality-card.accent-cyan::before { background: var(--cold2); }
+.reality-card.accent-amber::before { background: var(--amber); }
+.reality-card.accent-red::before { background: var(--red); }
+.reality-card.accent-signal::before { background: var(--signal); }
+.reality-number {
+  font-family: var(--head); font-size: 56px; font-weight: 800;
+  letter-spacing: -2px; line-height: 1; margin-bottom: 20px;
+}
+.reality-card.accent-cyan .reality-number { color: var(--cold2); }
+.reality-card.accent-amber .reality-number { color: var(--amber); }
+.reality-card.accent-red .reality-number { color: var(--red); }
+.reality-card.accent-signal .reality-number { color: var(--signal); }
+.reality-context {
+  font-size: 14px; color: var(--ice2); line-height: 1.8;
+  margin-bottom: 28px;
+}
+.reality-question {
+  font-size: 16px; color: var(--ice); font-style: italic;
+  line-height: 1.6; padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* scenario split cards */
+.scenario-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin-top: 48px;
+  border: 1px solid var(--line);
+}
+.scenario-card {
+  padding: 56px 48px;
+  position: relative;
+}
+.scenario-card:first-child { border-right: 1px solid var(--line); }
+.scenario-card.scenario-fail { background: rgba(232,48,80,0.03); }
+.scenario-card.scenario-success { background: rgba(0,229,160,0.03); }
+.scenario-tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 24px; display: inline-block;
+  padding: 4px 12px;
+}
+.scenario-fail .scenario-tag {
+  color: var(--red); border: 1px solid rgba(232,48,80,0.3); background: rgba(232,48,80,0.06);
+}
+.scenario-success .scenario-tag {
+  color: var(--signal); border: 1px solid rgba(0,229,160,0.3); background: rgba(0,229,160,0.06);
+}
+.scenario-title {
+  font-family: var(--head); font-size: 24px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: -0.5px;
+  color: var(--ice); margin-bottom: 20px; line-height: 1.1;
+}
+.scenario-text {
+  font-size: 14px; line-height: 1.85; margin-bottom: 16px;
+}
+.scenario-fail .scenario-text { color: var(--dim); }
+.scenario-success .scenario-text { color: var(--ice2); }
+.scenario-result {
+  font-family: var(--head); font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.scenario-fail .scenario-result { color: var(--red); }
+.scenario-success .scenario-result { color: var(--signal); }
+.scenario-bottom-text {
+  text-align: center; margin-top: 48px;
+  font-family: var(--head); font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--ice);
+}
+.scenario-bottom-text span { color: var(--signal); }
+
+/* ── FUNNEL / DEPLOYMENT PATH ────────────────────────────── */
+.funnel-section { padding: 160px 0; background: var(--ink2); border-top: 1px solid var(--line); }
+.funnel-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  margin-top: 64px;
+  border: 1px solid var(--line);
+  counter-reset: funnel;
+}
+.funnel-step {
+  padding: 40px 28px;
+  border-right: 1px solid var(--line);
+  position: relative;
+  counter-increment: funnel;
+}
+.funnel-step:last-child { border-right: none; }
+.funnel-step::before {
+  content: counter(funnel, decimal-leading-zero);
+  font-family: var(--head); font-size: 48px; font-weight: 800;
+  color: rgba(48,84,216,0.15); line-height: 1;
+  display: block; margin-bottom: 24px;
+}
+.funnel-step-title {
+  font-family: var(--head); font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--ice); margin-bottom: 12px;
+}
+.funnel-step-desc {
+  font-size: 12px; color: var(--dim); line-height: 1.7;
+}
+.funnel-step-arrow {
+  position: absolute; right: -8px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--cold2); font-size: 14px; z-index: 2;
+  background: var(--ink2); padding: 4px;
+}
+.funnel-step:last-child .funnel-step-arrow { display: none; }
+
+/* ── PILOT PROGRAM ───────────────────────────────────────── */
+.pilot-section {
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+  background: var(--ink);
+}
+.pilot-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; margin-top: 64px;
+  border: 1px solid var(--line);
+}
+.pilot-card {
+  padding: 48px 40px;
+  border-right: 1px solid var(--line);
+}
+.pilot-card:last-child { border-right: none; }
+.pilot-icon {
+  font-family: var(--mono); font-size: 28px; font-weight: 500;
+  color: var(--signal); margin-bottom: 20px;
+}
+.pilot-card-title {
+  font-family: var(--head); font-size: 16px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--ice); margin-bottom: 10px;
+}
+.pilot-card-desc {
+  font-size: 13px; color: var(--dim); line-height: 1.7;
+}
+
 /* ── TESTIMONIALS ────────────────────────────────────────── */
 .testi-section { padding: 160px 0; border-top: 1px solid var(--line); }
 .testi-grid {
@@ -1009,6 +1165,13 @@ footer {
   .arch-grid { grid-template-columns: 1fr; }
   .pricing-grid { grid-template-columns: 1fr; }
   .testi-grid { grid-template-columns: 1fr; }
+  .reality-cards { grid-template-columns: 1fr 1fr; }
+  .scenario-grid { grid-template-columns: 1fr; }
+  .scenario-card:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+  .funnel-steps { grid-template-columns: 1fr 1fr; }
+  .funnel-step:nth-child(2) { border-right: none; }
+  .funnel-step:nth-child(4) { border-right: none; }
+  .pilot-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .compliance-grid { grid-template-columns: 1fr 1fr; }
   .cta-final { padding: 100px 28px; }
@@ -1037,6 +1200,7 @@ footer {
       <li><a href="#architecture">Platform</a></li>
       <li><a href="#compliance">Security</a></li>
       <li><a href="#pricing">Enterprise</a></li>
+      <li><a href="#reality">Impact</a></li>
     </ul>
   </div>
   <div class="nav-right">
@@ -1693,6 +1857,128 @@ footer {
           <li><span class="pf-check">✓</span><span>24/7 dedicated support</span></li>
         </ul>
         <a href="#" class="price-cta">Schedule Briefing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE REALITY (SHOCK CONTENT) ─────────────────────────── -->
+<section class="section reality-section" id="reality">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-label">The Numbers Don't Lie</div>
+      <h2 class="s-title">The Cost of<br><em>Not Knowing.</em></h2>
+      <p class="s-body" style="margin-top:20px;">Every day, critical decisions are made without data. The consequences are not temporary — they are permanent.</p>
+    </div>
+
+    <div class="reality-cards">
+      <div class="reality-card accent-cyan reveal">
+        <div class="reality-number">73%</div>
+        <div class="reality-context">of training injuries showed extreme fatigue markers 48 hours before the incident occurred.</div>
+        <div class="reality-question">Who read the signs?</div>
+      </div>
+      <div class="reality-card accent-amber reveal" style="transition-delay:0.1s">
+        <div class="reality-number">3.5h</div>
+        <div class="reality-context">That's how long he slept before attempting a 140kg lift. The trainer didn't know. The physician didn't know. No one knew.</div>
+        <div class="reality-question">VitaNova would have known.</div>
+      </div>
+      <div class="reality-card accent-red reveal" style="transition-delay:0.2s">
+        <div class="reality-number">$0</div>
+        <div class="reality-context">That's how much your physician, psychologist, and trainer currently share with each other. Zero data. Zero context. Zero coordination.</div>
+        <div class="reality-question">VitaNova connects them.</div>
+      </div>
+      <div class="reality-card accent-signal reveal" style="transition-delay:0.3s">
+        <div class="reality-number">10min</div>
+        <div class="reality-context">That's how long your physician sees you. Once every 6 months. A photograph, not a film.</div>
+        <div class="reality-question">How do you make decisions from a photograph?</div>
+      </div>
+    </div>
+
+    <!-- Scenario Split: Prepared vs Unprepared -->
+    <div class="scenario-grid reveal">
+      <div class="scenario-card scenario-fail">
+        <div class="scenario-tag">Without VitaNova</div>
+        <div class="scenario-title">The 170 Meters<br>That Mattered</div>
+        <div class="scenario-text">Tactical casualty evacuation. Partner weight: 95kg. Distance to extraction: 200m. The unprepared soldier lifts, makes it 30 meters, collapses. His partner stays on the ground.</div>
+        <div class="scenario-text">"He didn't die from the bullet. He died because of the 170 meters."</div>
+        <div class="scenario-result">No readiness data · No sleep tracking · No intervention</div>
+      </div>
+      <div class="scenario-card scenario-success">
+        <div class="scenario-tag">With VitaNova</div>
+        <div class="scenario-title">Readiness Score: 87<br>Clear to Operate</div>
+        <div class="scenario-text">Every specialist sees the same soldier from a different angle. HRV trending up. Sleep quality: 7.2h deep. ACWR: 1.1 — optimal zone. Fireman's carry: 200m in 3 minutes. Partner reaches the medic.</div>
+        <div class="scenario-text">"Your specialists would have known."</div>
+        <div class="scenario-result">Continuous monitoring · Coordinated care · Data-driven decisions</div>
+      </div>
+    </div>
+
+    <div class="scenario-bottom-text reveal">
+      Same person. Same day.<br><span>The difference: context.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPLOYMENT PATH (FUNNEL) ──────────────────────────── -->
+<section class="section funnel-section" id="deployment">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-label">Deployment Path</div>
+      <h2 class="s-title">From Discovery to<br><em>Full Deployment.</em></h2>
+    </div>
+
+    <div class="funnel-steps">
+      <div class="funnel-step reveal">
+        <div class="funnel-step-title">Discovery</div>
+        <div class="funnel-step-desc">Initial assessment of your operational requirements. We understand your environment, security constraints, and performance objectives before suggesting any configuration.</div>
+        <span class="funnel-step-arrow">→</span>
+      </div>
+      <div class="funnel-step reveal" style="transition-delay:0.1s">
+        <div class="funnel-step-title">Technical Briefing</div>
+        <div class="funnel-step-desc">Classified deep-dive into the platform architecture, data sovereignty model, and integration options. Role-specific demonstrations for each stakeholder.</div>
+        <span class="funnel-step-arrow">→</span>
+      </div>
+      <div class="funnel-step reveal" style="transition-delay:0.2s">
+        <div class="funnel-step-title">Pilot Program</div>
+        <div class="funnel-step-desc">Deploy to one unit of 20 personnel for 30 days. Self-hosted, your data stays yours. Measurable results: Readiness Score before/after. Zero risk.</div>
+        <span class="funnel-step-arrow">→</span>
+      </div>
+      <div class="funnel-step reveal" style="transition-delay:0.3s">
+        <div class="funnel-step-title">Unit Deployment</div>
+        <div class="funnel-step-desc">Full deployment across your unit with all four specialist dashboards active. Population analytics enabled. Continuous optimization based on real operational data.</div>
+        <span class="funnel-step-arrow">→</span>
+      </div>
+      <div class="funnel-step reveal" style="transition-delay:0.4s">
+        <div class="funnel-step-title">Formation Scale</div>
+        <div class="funnel-step-desc">Expand from unit to formation to command tier. ML-powered predictive readiness. Graph Neural Network habit modeling. Full enterprise integration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PILOT PROGRAM CTA ──────────────────────────────────── -->
+<section class="section pilot-section">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="s-label">Zero Risk Pilot</div>
+      <h2 class="s-title">Try It With<br><em>20 People.</em></h2>
+      <p class="s-body" style="margin-top:20px;">30 days. One unit. Self-hosted infrastructure. Your data never leaves your servers. Measurable outcomes or walk away.</p>
+    </div>
+
+    <div class="pilot-grid">
+      <div class="pilot-card reveal">
+        <div class="pilot-icon">⬡</div>
+        <div class="pilot-card-title">Self-Hosted</div>
+        <div class="pilot-card-desc">Deploy on your own infrastructure within 72 hours. Air-gap compatible. No external dependencies. Data sovereignty is non-negotiable.</div>
+      </div>
+      <div class="pilot-card reveal" style="transition-delay:0.1s">
+        <div class="pilot-icon">◈</div>
+        <div class="pilot-card-title">Measurable</div>
+        <div class="pilot-card-desc">Track Readiness Score trends across the pilot period. Compare injury rates, training load optimization, and specialist coordination metrics before and after.</div>
+      </div>
+      <div class="pilot-card reveal" style="transition-delay:0.2s">
+        <div class="pilot-icon">◉</div>
+        <div class="pilot-card-title">Film, Not Photo</div>
+        <div class="pilot-card-desc">30 days of continuous health intelligence vs. a single consultation snapshot. Your specialists make decisions from a complete picture — not fragments.</div>
       </div>
     </div>
   </div>
